@@ -1,2 +1,2 @@
 CREATE DATABASE employees;
-USE employee;
+USE employees;
