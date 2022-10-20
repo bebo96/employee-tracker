@@ -12,7 +12,7 @@ CREATE TABLE roles (
   job_title VARCHAR(30) NOT NULL,
   department_id INTEGER,
   salary VARCHAR(30) NOT NULL,
-  FOREIGN KEY (department_id) REFERENCES department(id) ON DELETE CASCADE
+  FOREIGN KEY (department_id) REFERENCES department(id) 
 );
 
 CREATE TABLE employees (
@@ -21,7 +21,7 @@ CREATE TABLE employees (
   last_name VARCHAR(30) NOT NULL,
   role_id INTEGER NOT NULL,
   manager_id INTEGER NOT NULL,
-  FOREIGN KEY (manager_id) REFERENCES employees(id) ON DELETE CASCADE
+  FOREIGN KEY (manager_id) REFERENCES employees(id) ON DELETE SET NULL
 );
 
 -- goal is to query the following: 
