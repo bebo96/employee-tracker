@@ -4,7 +4,7 @@ VALUES
   ('R&D'),
   ('HR Department');
 
-INSERT INTO employees (first_name, last_name, role_id, manager_id)
+INSERT INTO employee (first_name, last_name, role_id, manager_id)
 VALUES
   ('Ronald', 'Firbank', 1, 1),
   ('Virginia', 'Woolf', 1, 1),
@@ -17,9 +17,9 @@ VALUES
   ('Octavia', 'Butler', 3, 3),
   ('Unica', 'Zurn', 2, 3);
 
-  INSERT INTO roles (job_title, department_id, salary)
+  INSERT INTO role (title, salary, department_id)
 VALUES
-  ('Engineer',2, 100000),
-  ('Manager',1,130000),
-  ('Intern',3,50000);
+  ('Engineer',100000, 2),
+  ('Manager',130000, 1),
+  ('Intern',50000, 3);
 

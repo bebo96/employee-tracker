@@ -1,27 +1,28 @@
 DROP TABLE IF EXISTS department;
-DROP TABLE IF EXISTS roles;
-DROP TABLE IF EXISTS employees;
+DROP TABLE IF EXISTS role;
+DROP TABLE IF EXISTS employee;
 
 CREATE TABLE department (
   id INTEGER AUTO_INCREMENT PRIMARY KEY,
-  name VARCHAR(50) NOT NULL
+  name VARCHAR(30)
 );
 
-CREATE TABLE roles (
+CREATE TABLE role (
   id INTEGER AUTO_INCREMENT PRIMARY KEY,
-  job_title VARCHAR(30) NOT NULL,
+  title VARCHAR(30) NOT NULL,
+  salary DECIMAL(8,2) NOT NULL,
   department_id INTEGER,
-  salary VARCHAR(30) NOT NULL,
   FOREIGN KEY (department_id) REFERENCES department(id) 
 );
 
-CREATE TABLE employees (
-  id INTEGER AUTO_INCREMENT PRIMARY KEY,
+CREATE TABLE employee (
+  e_id INTEGER AUTO_INCREMENT PRIMARY KEY,
   first_name VARCHAR(30) NOT NULL,
   last_name VARCHAR(30) NOT NULL,
   role_id INTEGER NOT NULL,
   manager_id INTEGER NOT NULL,
-  FOREIGN KEY (manager_id) REFERENCES employees(id) ON DELETE SET NULL
+  FOREIGN KEY (role_id) REFERENCES role(id) ON DELETE SET NULL
+  FOREIGN KEY (manager_id) REFERENCES employee(e_id) ON DELETE SET NULL
 );
 
 -- goal is to query the following: 
