@@ -22,4 +22,3 @@ VALUES
   ('Engineer',100000, 2),
   ('Manager',130000, 1),
   ('Intern',50000, 3);
-
