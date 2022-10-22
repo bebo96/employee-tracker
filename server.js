@@ -32,8 +32,7 @@ const startPrompt = () => {
                 viewDepartments();
             } else if (answers.choices === "Add Department") {
                 addDepartment();
-            }
-            else if (answers.choices === "Quit") {
+            } else if (answers.choices === "Quit") {
                 Quit();
             };
         });
@@ -82,8 +81,35 @@ function viewDepartments() {
     });
 }
 
-function Quit(){
+// Add a department
+function addDepartment() {
+    let param;
+    inquirer
+        .prompt([{
+            type: 'input',
+            name: 'choices',
+            message: 'Please enter department name: '
+        }, ])
+        .then(answers => {
+            param = answers.choices;
+            const sql = 'INSERT INTO department (name) VALUES (?)'
+            db.query(sql, param, (err, rows) => {
+                if (err) {
+                    return;
+                }
+                console.log('\n\n');
+                console.log(param + " has been added. ");
+                // console.table(rows);
+                console.log('\n\n');
+                startPrompt();
+            });
+        });
+
+}
+function Quit() {
     console.log("Goodbye!");
+    process.exit();
+
 }
 
 // Start server after DB connection
