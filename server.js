@@ -104,14 +104,12 @@ function addDepartment() {
                 startPrompt();
             });
         });
-
 }
 function Quit() {
     console.log("Goodbye!");
     process.exit();
 
 }
-
 // Start server after DB connection
 db.connect(err => {
     if (err) throw err;
